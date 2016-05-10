@@ -84,7 +84,7 @@ Version: $(currentVersion)"/>
 			<gr Include="&lt;/PropertyGroup&gt;"/>
 			<gr Include="&lt;ItemGroup&gt;"/>
 			<gr Include="&lt;Reference Include=&quot;GeoAPI&quot;&gt;"/>
-			<gr Include="&lt;HintPath&gt;$(n1)packages\GeoAPI.$(geoAPIVersion)\lib\$(n2)\GeoAPI.dll&lt;/HintPath&gt;"/>
+			<gr Include="&lt;HintPath&gt;$(n1)packages\DotSpatial.GeoAPI.$(geoAPIVersion)\lib\$(n2)\DotSpatial.GeoAPI.dll&lt;/HintPath&gt;"/>
 			<gr Include="&lt;/Reference&gt;"/>
 			<gr Include="&lt;/ItemGroup&gt;"/>
 			<gr Include="&lt;/Project&gt;"/>
@@ -113,7 +113,7 @@ Version: $(currentVersion)"/>
 			<newver>$(geoAPIVersion)</newver>
 		</PropertyGroup>
 		<Message Text="Trying to install GeoAPI v$(newver)"/>
-		<Exec Command="$(MSBuildProjectDirectory)\..\.nuget\nuget install GeoAPI -version $(newver) -prerelease -o $(MSBuildProjectDirectory)\..\packages"/>
+		<Exec Command="$(MSBuildProjectDirectory)\..\.nuget\nuget install DotSpatial.GeoAPI -version $(newver) -prerelease -o $(MSBuildProjectDirectory)\..\packages"/>
 	</Target>
 
 	<Target Name="UpdatePC" DependsOnTargets="ReadVersion;Nuget">
@@ -126,8 +126,8 @@ Version: $(currentVersion)"/>
 			<newver>$(geoAPIVersion)</newver>
 		</PropertyGroup>
 		<PropertyGroup>
-			<find>package id=&quot;GeoAPI&quot; version=&quot;$(oldver)&quot;</find>
-			<repl>package id=&quot;GeoAPI&quot; version=&quot;$(newver)&quot;</repl>
+			<find>package id=&quot;DotSpatial.GeoAPI&quot; version=&quot;$(oldver)&quot;</find>
+			<repl>package id=&quot;DotSpatial.GeoAPI&quot; version=&quot;$(newver)&quot;</repl>
 		</PropertyGroup>
 
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
-		<SolutionFile>NetTopologySuite.sln</SolutionFile>
+		<SolutionFile>DSNetTopologySuite.sln</SolutionFile>
 		<SolutionDir>$(MSBuildProjectDirectory)\</SolutionDir>
-		<AsmVersion>1.13.4</AsmVersion>
+		<AsmVersion>1.14.2</AsmVersion>
 		<AsmFileVersion Condition=" '$(AsmFileVersion)' == '' ">$(AsmVersion)</AsmFileVersion>
 		<NuGetOutDir>"$(MSBuildProjectDirectory)\Release"</NuGetOutDir>
 		<NuGetVersion Condition=" '$(NuGetVersion)' == '' ">$(AsmFileVersion)</NuGetVersion>
@@ -13,10 +13,10 @@
 		<geoAPIVersion Condition=" '$(geoAPIVersion)' == '' ">1.7.4-pre</geoAPIVersion>
 	</PropertyGroup>
 
-	<Target Name="InstallGeoAPI" Condition=" !Exists('$(SolutionDir)packages\GeoAPI.$(geoAPIVersion)') ">
+	<Target Name="InstallGeoAPI" Condition=" !Exists('$(SolutionDir)packages\DotSpatial.GeoAPI.$(geoAPIVersion)') ">
 		<Message Text ="Installing correct GeoAPI $(geoApiVersion)!"/>
 		<Message Text ="$(SolutionDir)"/>
-		<Exec Command="$(NuGetCommand) install GeoAPI -version $(geoApiVersion) -o $(SolutionDir)packages"/>
+		<Exec Command="$(NuGetCommand) install DotSpatial.GeoAPI -version $(geoApiVersion) -o $(SolutionDir)packages"/>
 	</Target>
 
 	<Target Name="Clean">
@@ -92,7 +92,7 @@
 		</PropertyGroup>
 		<RemoveDir Directories="$(MSBuildProjectDirectory)\obj\v4.0" ContinueOnError="true"/>
 		<MSBuild Projects="$(SolutionFile)" 
-             Targets="NetTopologySuite;NetTopologySuite_IO\NetTopologySuite_IO_GeoJSON;NetTopologySuite_IO\NetTopologySuite_IO_ShapeFile;NetTopologySuite_IO\NetTopologySuite_IO_ShapeFile_Extended;NetTopologySuite_IO\NetTopologySuite_IO_GDB;NetTopologySuite_IO\NetTopologySuite_IO_GeoTools;NetTopologySuite_IO\NetTopologySuite_IO_MsSqlSpatial;NetTopologySuite_IO\NetTopologySuite_IO_PostGis;NetTopologySuite_IO\NetTopologySuite_IO_SpatiaLite;NetTopologySuite_IO\NetTopologySuite_IO_SqlServer2008" 
+             Targets="NetTopologySuite" 
              Properties="fwVersion=$(fwVersion);Configuration=Release;TargetFrameworkVersion=v4.0;TargetFrameworkProfile=Client;DefineConstants=TRACE,NET20,NET35,NET40;BaseIntermediateOutputPath=$(MSBuildProjectDirectory)\obj\v4.0\;" 
              RunEachTargetSeparately="true" 
              ContinueOnError="true" 
@@ -142,6 +142,7 @@
              />
 	</Target>
 	<Target Name="RebuildRelease" DependsOnTargets="CleanRelease;BuildRelease20;BuildRelease35;BuildRelease403;BuildRelease45;BuildRelease40"/>	
+    <Target Name="RebuildRelease40" DependsOnTargets="CleanRelease;BuildRelease40"/>	
 
 	<!-- build only for now, test on build server -->
 	<Target Name="UnitTests" DependsOnTargets="CleanRelease;BuildRelease40">
@@ -157,13 +158,13 @@
              />			 
 	</Target>
 
-	<Target Name="NuGetPack" DependsOnTargets="RebuildRelease;BuildReleasePCL">
+	<Target Name="NuGetPack" DependsOnTargets="RebuildRelease40">
 		<Exec Command="$(NuGetCommand) update -self"/>
 		<Exec Command="$(NuGetCommand) pack NTS.nuspec -Version $(NuGetVersion) -outputdirectory $(NuGetOutDir) -symbols"/>
-		<Exec Command="$(NuGetCommand) pack NTS.IO.nuspec -Version $(NuGetVersion) -outputdirectory $(NuGetOutDir) -symbols"/>
+		<!--<Exec Command="$(NuGetCommand) pack NTS.IO.nuspec -Version $(NuGetVersion) -outputdirectory $(NuGetOutDir) -symbols"/>
 		<Exec Command="$(NuGetCommand) pack NTS.IO.SpatiaLite.nuspec -Version $(NuGetVersion) -outputdirectory $(NuGetOutDir) -symbols"/>
 		<Exec Command="$(NuGetCommand) pack NTS.IO.SqlServer.nuspec -Version $(NuGetVersion) -outputdirectory $(NuGetOutDir) -symbols"/>
-		<Exec Command="$(NuGetCommand) pack NTS.IO.GeoJSON.nuspec -Version $(NuGetVersion) -outputdirectory $(NuGetOutDir) -symbols"/>		
+		<Exec Command="$(NuGetCommand) pack NTS.IO.GeoJSON.nuspec -Version $(NuGetVersion) -outputdirectory $(NuGetOutDir) -symbols"/>-->		
 	</Target>
 
 	<!-- 

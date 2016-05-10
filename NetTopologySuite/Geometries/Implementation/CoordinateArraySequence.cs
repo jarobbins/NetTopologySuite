@@ -25,20 +25,20 @@ namespace NetTopologySuite.Geometries.Implementation
 
         /**
          * The actual dimension of the coordinates in the sequence.
-         * Allowable values are 2 or 3.
+         * Allowable values are 2, 3 and 4.
          */
-        private readonly int _dimension = 3;
-  
+        private readonly int _dimension = 4;
+
         /// <summary>
         /// Constructs a sequence based on the given array of <see cref="Coordinate"/>s.
-        /// The coordinate dimension is 3
+        /// The coordinate dimension is 4
         /// </summary>
         /// <remarks>
         /// The array is not copied.
         /// </remarks>
         /// <param name="coordinates">The coordinate array that will be referenced.</param>
-        public CoordinateArraySequence(Coordinate[] coordinates) 
-            : this(coordinates, 3) { }
+        public CoordinateArraySequence(Coordinate[] coordinates)
+            : this(coordinates, 4) { }
 
         /// <summary>
         /// Constructs a sequence based on the given array 
@@ -60,7 +60,7 @@ namespace NetTopologySuite.Geometries.Implementation
         /// </summary>
         /// <param name="size">The size of the sequence to create.</param>
         public CoordinateArraySequence(int size)
-            : this(size, 3) { }
+            : this(size, 4) { }
 
         /// <summary>
         /// Constructs a sequence of a given <paramref name="size"/>, populated 
@@ -112,8 +112,8 @@ namespace NetTopologySuite.Geometries.Implementation
         {
             get
             {
-                return _dimension == 3 
-                    ? Ordinates.XYZ 
+                return _dimension == 4 ? Ordinates.XYZM : _dimension == 3
+                    ? Ordinates.XYZ
                     : Ordinates.XY;
             }
         }
@@ -148,6 +148,7 @@ namespace NetTopologySuite.Geometries.Implementation
             coord.X = Coordinates[index].X;
             coord.Y = Coordinates[index].Y;
             coord.Z = Coordinates[index].Z;
+            coord.M = Coordinates[index].M;
         }
 
         /// <summary>
@@ -193,6 +194,8 @@ namespace NetTopologySuite.Geometries.Implementation
                     return Coordinates[index].Y;
                 case Ordinate.Z:  
                     return Coordinates[index].Z;
+                case Ordinate.M:
+                    return Coordinates[index].M;
                 default:
                     return Double.NaN;
             }            
@@ -249,6 +252,9 @@ namespace NetTopologySuite.Geometries.Implementation
                     break;
                 case Ordinate.Z: 
                     Coordinates[index].Z = value;
+                    break;
+                case Ordinate.M:
+                    Coordinates[index].M = value;
                     break;
                 //default:
                 //    //throw new ArgumentException("invalid ordinate index: " + ordinate);

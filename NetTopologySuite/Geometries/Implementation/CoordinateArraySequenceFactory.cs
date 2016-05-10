@@ -40,8 +40,8 @@ namespace NetTopologySuite.Geometries.Implementation
         
         public ICoordinateSequence Create(int size, int dimension)
         {
-            if (dimension > 3)
-                dimension = 3;
+            if (dimension > 4)
+                dimension = 4;
             // throw new ArgumentOutOfRangeException("dimension must <= 3");
             // handle bogus dimension
             if (dimension < 2)
@@ -57,7 +57,7 @@ namespace NetTopologySuite.Geometries.Implementation
 
         public Ordinates Ordinates
         {
-            get { return Ordinates.XYZ; }
+            get { return Ordinates.XYZM; }
         }
     }
 }

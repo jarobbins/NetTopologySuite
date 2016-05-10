@@ -225,7 +225,7 @@ namespace NetTopologySuite.Geometries
         {
             if (IsEmpty) 
                 return new Envelope();            
-            return new Envelope(Coordinate.X, Coordinate.X, Coordinate.Y, Coordinate.Y);
+            return new Envelope(Coordinate);
         }
 
         //internal override int  GetHashCodeInternal(int baseValue, Func<int,int> operation)
@@ -389,11 +389,11 @@ namespace NetTopologySuite.Geometries
             {
                 if (Coordinate == null)
                     throw new ArgumentOutOfRangeException("M called on empty Point");
-                return Coordinate.NullOrdinate;
+                return Coordinate.M;
             }
             set
             {
-                //Coordinate.M = value;
+                Coordinate.M = value;
             }
         }
     

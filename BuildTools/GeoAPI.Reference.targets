@@ -4,8 +4,8 @@
 <fwVersion Condition=" '$(fwVersion)' == '' ">net40-client</fwVersion>
 </PropertyGroup>
 <ItemGroup>
-<Reference Include="GeoAPI">
-<HintPath>$(SolutionDir)packages\GeoAPI.1.7.4\lib\$(fwVersion)\GeoAPI.dll</HintPath>
+<Reference Include="DotSpatial.GeoAPI">
+<HintPath>$(SolutionDir)packages\DotSpatial.GeoAPI.1.7.4.1\lib\$(fwVersion)\DotSpatial.GeoAPI.dll</HintPath>
 </Reference>
 </ItemGroup>
 </Project>

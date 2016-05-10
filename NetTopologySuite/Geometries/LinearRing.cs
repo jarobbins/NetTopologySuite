@@ -50,7 +50,7 @@ namespace NetTopologySuite.Geometries
         /// </summary>
         private void ValidateConstruction()
         {
-            if (!IsEmpty && !base.IsClosed)
+            if (!IsClosed)
                 throw new ArgumentException("points must form a closed linestring");
             if (CoordinateSequence.Count >= 1 && CoordinateSequence.Count < MinimumValidSize)
                 throw new ArgumentException("Number of points must be 0 or >3");
