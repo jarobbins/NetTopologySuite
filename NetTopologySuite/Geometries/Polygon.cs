@@ -691,20 +691,6 @@ namespace NetTopologySuite.Geometries
 
         /*END ADDED BY MPAUL42 */
 
-        /* Begin DotSpatial changes added by jany_ */
-        /// <summary>
-        /// Clears any cached envelopes
-        /// </summary>
-        public override void ClearEnvelope()
-        {
-            _shell.ClearEnvelope();
-            foreach (ILinearRing ring in Holes)
-            {
-                ring.ClearEnvelope();
-            }
-        }
-        /* End DotSpatial changes added by jany_ */
-
     }
 
 #if NET35

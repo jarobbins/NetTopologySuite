@@ -2253,37 +2253,6 @@ namespace NetTopologySuite.Geometries
             return result;
         }
 
-
-        /* Begin DotSpatial changes added by jany_ */
-
-        /// <summary>
-        /// Forces the cached envelope to be re-calculated using the coordinates.
-        /// </summary>
-        public void UpdateEnvelope()
-        {
-            if (NumGeometries > 1)
-            {
-                for (int i = 0; i < NumGeometries; i++)
-                    GetGeometryN(i).UpdateEnvelope();
-            }
-            else
-            {
-                ClearEnvelope();
-                _envelope = ComputeEnvelopeInternal();
-            }
-        }
-
-
-        /// <summary>
-        /// Clears any cached envelopes
-        /// </summary>
-        public virtual void ClearEnvelope()
-        {
-            _envelope = null;
-        }
-
-        /* End DotSpatial changes added by jany_ */
-
     }
 
 #if NET35
