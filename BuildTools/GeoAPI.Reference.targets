@@ -5,7 +5,7 @@
 </PropertyGroup>
 <ItemGroup>
 <Reference Include="DotSpatial.GeoAPI">
-<HintPath>$(SolutionDir)packages\DotSpatial.GeoAPI.1.7.4.1\lib\$(fwVersion)\DotSpatial.GeoAPI.dll</HintPath>
+<HintPath>$(SolutionDir)packages\DotSpatial.GeoAPI.1.7.4.3\lib\$(fwVersion)\DotSpatial.GeoAPI.dll</HintPath>
 </Reference>
 </ItemGroup>
 </Project>
