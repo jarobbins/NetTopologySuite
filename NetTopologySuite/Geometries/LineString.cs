@@ -300,14 +300,32 @@ namespace NetTopologySuite.Geometries
             double miny = coordinates[0].Y;
             double maxx = coordinates[0].X;
             double maxy = coordinates[0].Y;
+
+            double maxM = coordinates[0].M;
+            double minM = coordinates[0].M;
+            double maxZ = coordinates[0].Z;
+            double minZ = coordinates[0].Z;
+
             for (int i = 1; i < coordinates.Length; i++)
             {
                 minx = minx < coordinates[i].X ? minx : coordinates[i].X;
                 maxx = maxx > coordinates[i].X ? maxx : coordinates[i].X;
                 miny = miny < coordinates[i].Y ? miny : coordinates[i].Y;
                 maxy = maxy > coordinates[i].Y ? maxy : coordinates[i].Y;
+
+                minM = minM < coordinates[i].M ? minM : coordinates[i].M;
+                maxM = maxM > coordinates[i].M ? maxM : coordinates[i].M;
+                minZ = minZ < coordinates[i].Z ? minZ : coordinates[i].Z;
+                maxZ = maxZ > coordinates[i].Z ? maxZ : coordinates[i].Z;
             }
-            return new Envelope(minx, maxx, miny, maxy);
+
+            Envelope e = new Envelope(minx, maxx, miny, maxy);
+            e.Maximum.M = maxM;
+            e.Maximum.Z = maxZ;
+            e.Minimum.M = minM;
+            e.Minimum.Z = minZ;
+
+            return e;
         }
 
         //[Obsolete]
