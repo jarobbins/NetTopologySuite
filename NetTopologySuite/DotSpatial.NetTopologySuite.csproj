@@ -17,7 +17,7 @@
     <Compile Remove="Utilities\GeoToolsStreamTokenizer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="GeoAPI" Version="2.0.2" />
+    <PackageReference Include="GeoDigital.GeoAPI" Version="2.0.3" />
     <PackageReference Include="GitVersionTask" Version="5.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
