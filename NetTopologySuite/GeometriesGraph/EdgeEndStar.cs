@@ -214,7 +214,7 @@ namespace NetTopologySuite.GeometriesGraph
         {
             // compute location only on demand
             if (_ptInAreaLocation[geomIndex] == Location.Null) 
-                _ptInAreaLocation[geomIndex] = SimplePointInAreaLocator.Locate(p, geom[geomIndex].Geometry);            
+                _ptInAreaLocation[geomIndex] = Algorithm.Locate.SimplePointInAreaLocator.Locate(p, geom[geomIndex].Geometry);            
             return _ptInAreaLocation[geomIndex];
         }
 

@@ -214,7 +214,7 @@ namespace NetTopologySuite.Operation.Predicate
                     continue;
                 
                 // check rect point in poly (rect is known not to touch polygon at this point)
-                if (SimplePointInAreaLocator.ContainsPointInPolygon(rectPt, (IPolygon) geom))
+                if (Algorithm.Locate.SimplePointInAreaLocator.ContainsPointInPolygon(rectPt, (IPolygon) geom))
                 {
                     ContainsPoint = true;
                     return;
