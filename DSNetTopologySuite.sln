@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A11130E8-4942-432A-97B7-ADEEFB34A977}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,15 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TeamCity.targets = TeamCity.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetTopologySuite", "NetTopologySuite\NetTopologySuite.csproj", "{5770DAA9-84E5-4770-AF43-F6B815894368}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GeoAPI", "GeoAPI", "{47BCD40A-C4CF-4E5D-BC90-0491DAC12778}"
-	ProjectSection(SolutionItems) = preProject
-		BuildTools\GeoAPI.Pcl.Reference.targets = BuildTools\GeoAPI.Pcl.Reference.targets
-		BuildTools\GeoAPI.Reference.targets = BuildTools\GeoAPI.Reference.targets
-		BuildTools\GeoAPI.targets = BuildTools\GeoAPI.targets
-		BuildTools\GeoAPI.version = BuildTools\GeoAPI.version
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotSpatial.NetTopologySuite", "NetTopologySuite\DotSpatial.NetTopologySuite.csproj", "{5770DAA9-84E5-4770-AF43-F6B815894368}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,7 +36,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{47BCD40A-C4CF-4E5D-BC90-0491DAC12778} = {A11130E8-4942-432A-97B7-ADEEFB34A977}
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3630A79D-4F55-45BF-867A-A0A6974629C6}
 	EndGlobalSection
 EndGlobal

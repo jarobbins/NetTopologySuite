@@ -36,7 +36,7 @@ namespace NetTopologySuite.Geometries.Prepared
         private bool _hasInterior;
 
         // the proper intersection point found
-        private ICoordinate _properIntersectionPoint;
+        private Coordinate _properIntersectionPoint;
 
         private readonly LineIntersector li;
         private bool _isSelfIntersection;
@@ -58,7 +58,7 @@ namespace NetTopologySuite.Geometries.Prepared
         ///<summary>
         /// Gets the proper intersection point, or <code>null</code> if none was found
         ///</summary>
-        public ICoordinate ProperIntersectionPoint { get { return _properIntersectionPoint; } }
+        public Coordinate ProperIntersectionPoint { get { return _properIntersectionPoint; } }
 
         public Boolean HasIntersection { get { return _hasIntersection; } }
 

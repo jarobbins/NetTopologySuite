@@ -1436,7 +1436,7 @@ namespace NetTopologySuite.Mathematics
             else if (numDecPlaces < 0)
             {
                 DD scale = Ten.Pow(-numDecPlaces);
-                val2 = val.Multiply(scale);
+                val2 = val*scale;
             }
             // apply leading sign, if any
             if (isNegative)
